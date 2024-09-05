@@ -5,6 +5,9 @@ CREATE TABLE disciplina(
 	
 );
 
+ALTER TABLE disciplina ADD cargahoraria INT NOT NULL; 
+
+
 CREATE TABLE alunofatec(
 	ra_aluno INT NOT NULL PRIMARY KEY,
 	nome VARCHAR (100) NOT NULL,
@@ -17,9 +20,8 @@ CREATE TABLE alunofatec(
 DESCRIBE disciplina;
 DROP TABLE disciplina;
 
-DESCRIBE aluno;
+DESCRIBE disciplina;
 
-DROP TABLE aluno;
 
 CREATE TABLE cursa(
 	cod_disciplina INT NOT NULL,
@@ -41,5 +43,28 @@ CONSTRAINT fk_cursa_aluno FOREIGN KEY (cod_aluno) REFERENCES alunofatec (ra_alun
 DESCRIBE cursa;
 
 USE bancoaula;
+
+SELECT * FROM alunofatec;
+
+INSERT INTO disciplina (cod_disciplina, nome, cargahoraria)
+VALUES (1, 'analise e desenvolvimento de sistemas',4);
+
+DELETE FROM disciplina
+WHERE cod_disciplina = 2;
+
+ALTER TABLE alunofatec CHANGE nome nome_aluno VARCHAR (100) NOT NULL;
+
+DESCRIBE alunofatec;
+
+INSERT INTO alunofatec (ra_aluno, nome_aluno, data_nasc, cpf, telefone, endereco)
+VALUES (1, 'Ramon Lopes de Camargo', 15-04-2001, '11111111111', 11111111111, 'rua das orquideas');
+
+UPDATE alunofatec
+SET data_nasc = "2001-04-15"
+WHERE ra_aluno = 1;
+
+CREATE TABLE aluno2 LIKE alunofatec;
+INSERT INTO aluno2 SELECT * FROM alunofatec;
+SELECT * FROM aluno2;
 
 
