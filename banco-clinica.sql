@@ -1,0 +1,30 @@
+CREATE DATABASE clinica;
+USE  clinica;
+
+CREATE TABLE medico(
+	crm INT PRIMARY KEY NOT NULL UNIQUE,
+	nome VARCHAR(100) NOT null
+);
+
+
+
+CREATE TABLE paciente(
+	cpf INT PRIMARY KEY NOT NULL UNIQUE,
+	nome VARCHAR(100), 
+	datanasc DATE
+);
+
+ CREATE TABLE especialidade(
+ 	id_esp INT PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
+ 	descri VARCHAR(150)
+ );
+ 
+ CREATE TABLE convenio (
+ 	id_con INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
+ 	nome_con VARCHAR(30)
+  )
+  
+ CREATE TABLE exame (
+ 	id_Exa INT PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
+ 	nome VARCHAR(50)
+ );
